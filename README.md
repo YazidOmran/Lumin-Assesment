@@ -35,14 +35,14 @@ Ensure you have the following installed:
 #### 1. Clone the Repository
 
 ```bash
-git clone <repository-link>
+git clone https://github.com/YazidOmran/Lumin-Assesment
 cd Lumin-Assesment
 ```
 
 #### 2. Backend Setup
 
 ```bash
-cd TaskManagerBackend
+cd ../TaskManagerBackend
 dotnet restore
 dotnet ef database update
 dotnet run
