@@ -45,10 +45,10 @@ cd Lumin-Assesment
 cd ../TaskManagerBackend
 dotnet restore
 dotnet ef database update
-dotnet run
+dotnet run --launch-profile https --project TaskManagerBackend
 ```
 
-This will start the backend server, usually at `https://localhost:5001`.
+This will start the backend server, usually at `https://localhost:5001/swagger/index.html`.
 
 #### 3. Frontend Setup
 
