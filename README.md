@@ -89,6 +89,13 @@ The frontend will be accessible at `http://localhost:3000`.
 
 ---
 
+## Demo Video
+<video src="Task Manager Demo.mp4" controls="controls" width="500" height="300">
+   Your browser does not support the video tag.
+</video>
+
+---
+
 ## 📬 Contact
 
 For any questions or issues, please contact [yaomran2@gmail.com].
