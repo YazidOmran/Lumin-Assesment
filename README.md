@@ -89,10 +89,9 @@ The frontend will be accessible at `http://localhost:3000`.
 
 ---
 
-## Demo Video
-<video src="Task Manager Demo.mp4" controls="controls" width="500" height="300">
-   Your browser does not support the video tag.
-</video>
+## 🎬 Demo Video
+Here's a short demo video showcasing app functionalities:
+https://github.com/user-attachments/assets/9fafecdb-a444-4384-9133-fd9ced7bbddd
 
 ---
 
