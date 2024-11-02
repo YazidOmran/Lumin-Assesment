@@ -53,7 +53,7 @@ This will start the backend server, usually at `https://localhost:5001`.
 #### 3. Frontend Setup
 
 ```bash
-cd ../Frontend
+cd ../task-manager-frontend
 npm install
 npm start
 ```
