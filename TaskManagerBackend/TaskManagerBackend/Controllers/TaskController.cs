@@ -25,25 +25,13 @@ namespace TaskManagerBackend.Controllers
             return await _context.Tasks.ToListAsync();
         }
 
-        // GET: api/tasks/{id} - Retrieve a specific task by ID
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TaskManagerBackend.Models.Task>> GetTaskById(int id)
-        {
-            var task = await _context.Tasks.FindAsync(id);
-            if (task == null)
-            {
-                return NotFound();
-            }
-            return task;
-        }
-
         // POST: api/tasks - Add a new task
         [HttpPost]
         public async Task<ActionResult<TaskManagerBackend.Models.Task>> AddTask(TaskManagerBackend.Models.Task task)
         {
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
+            return Created("", task); // Return 201 Created without a specific location
         }
 
         // PUT: api/tasks/{id} - Update an existing task by ID
