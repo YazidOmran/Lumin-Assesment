@@ -12,7 +12,7 @@ const Profile = () => {
                 const accessToken = await getAccessTokenSilently({
                     authorizationParams: {
                         audience: `https://${domain}/api/v2/`,
-                        scope: "view:tasks",
+                        scope: "view:tasks read:current_user",
                     },
                 });
 

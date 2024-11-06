@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTasks, deleteTask, updateTask, addTask } from '../api';
+import { useAuth0 } from '@auth0/auth0-react';
 import {
     Button, List, ListItem, ListItemText, Box, Typography, Select, MenuItem, FormControl, InputLabel,
     Card, CardContent, CardActions, Divider, Grid, Dialog, DialogTitle, DialogContent, DialogActions,
@@ -8,18 +9,20 @@ import {
 import TaskForm from './TaskForm';
 
 const TaskList = () => {
+    const { getAccessTokenSilently } = useAuth0();
     const [tasks, setTasks] = useState([]);
     const [selectedTask, setSelectedTask] = useState(null);
     const [filter, setFilter] = useState('All');
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false); // New state for delete confirmation dialog
-    const [taskToDelete, setTaskToDelete] = useState(null); // Task to be deleted
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+    const [taskToDelete, setTaskToDelete] = useState(null);
     const [viewType, setViewType] = useState('card');
 
     useEffect(() => {
         const getTasks = async () => {
             try {
-                const data = await fetchTasks();
+                const token = await getAccessTokenSilently();
+                const data = await fetchTasks(token);
                 setTasks(data);
             } catch (error) {
                 console.error("Failed to fetch tasks:", error);
@@ -27,12 +30,13 @@ const TaskList = () => {
         };
 
         getTasks();
-    }, []);
+    }, [getAccessTokenSilently]);
 
     const handleDelete = async () => {
         if (taskToDelete) {
             try {
-                await deleteTask(taskToDelete.id);
+                const token = await getAccessTokenSilently();
+                await deleteTask(taskToDelete.id, token);
                 setTasks(tasks.filter(task => task.id !== taskToDelete.id));
                 setIsDeleteDialogOpen(false);
                 setTaskToDelete(null);
@@ -44,17 +48,18 @@ const TaskList = () => {
 
     const handleDeleteClick = (task) => {
         setTaskToDelete(task);
-        setIsDeleteDialogOpen(true); // Open delete confirmation dialog
+        setIsDeleteDialogOpen(true);
     };
 
     const handleSaveTask = async (task) => {
         try {
+            const token = await getAccessTokenSilently();
             if (task.id) {
-                await updateTask(task.id, task);
+                await updateTask(task.id, task, token);
             } else {
-                await addTask(task);
+                await addTask(task, token);
             }
-            const data = await fetchTasks();
+            const data = await fetchTasks(token);
             setTasks(data);
             setSelectedTask(null);
             setIsDialogOpen(false);
