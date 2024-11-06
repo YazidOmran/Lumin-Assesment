@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskManagerBackend.Models;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagerBackend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/tasks")]
     [ApiController]
     public class TasksController : ControllerBase
     {
@@ -18,15 +19,17 @@ namespace TaskManagerBackend.Controllers
             _context = context;
         }
 
-        // GET: api/tasks - Retrieve all tasks
+        // GET: api/tasks - Retrieve all tasks (requires view:tasks permission)
         [HttpGet]
+        [Authorize("view:tasks")]
         public async Task<ActionResult<IEnumerable<TaskManagerBackend.Models.Task>>> GetTasks()
         {
             return await _context.Tasks.ToListAsync();
         }
 
-        // POST: api/tasks - Add a new task
+        // POST: api/tasks - Add a new task (requires create:tasks permission)
         [HttpPost]
+        [Authorize("create:tasks")]
         public async Task<ActionResult<TaskManagerBackend.Models.Task>> AddTask(TaskManagerBackend.Models.Task task)
         {
             _context.Tasks.Add(task);
@@ -34,8 +37,9 @@ namespace TaskManagerBackend.Controllers
             return Created("", task); // Return 201 Created without a specific location
         }
 
-        // PUT: api/tasks/{id} - Update an existing task by ID
+        // PUT: api/tasks/{id} - Update an existing task by ID (requires edit:tasks permission)
         [HttpPut("{id}")]
+        [Authorize("edit:tasks")]
         public async Task<IActionResult> UpdateTask(int id, TaskManagerBackend.Models.Task updatedTask)
         {
             if (id != updatedTask.Id)
@@ -64,8 +68,9 @@ namespace TaskManagerBackend.Controllers
             return NoContent();
         }
 
-        // DELETE: api/tasks/{id} - Delete a task by ID
+        // DELETE: api/tasks/{id} - Delete a task by ID (requires delete:tasks permission)
         [HttpDelete("{id}")]
+        [Authorize("delete:tasks")]
         public async Task<IActionResult> DeleteTask(int id)
         {
             var task = await _context.Tasks.FindAsync(id);

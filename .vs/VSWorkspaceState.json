@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "\\task-manager-frontend",
+    "\\task-manager-frontend\\src",
+    "\\TaskManagerBackend\\TaskManagerBackend",
+    "\\TaskManagerBackend\\TaskManagerBackend\\Controllers"
   ],
-  "SelectedNode": "\\TaskManagerBackend.sln",
   "PreviewInSolutionExplorer": false
 }
