@@ -4,11 +4,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 import {
     Button, List, ListItem, ListItemText, Box, Typography, Select, MenuItem, FormControl, InputLabel,
     Card, CardContent, CardActions, Divider, Grid, Dialog, DialogTitle, DialogContent, DialogActions,
-    ToggleButton, ToggleButtonGroup
+    ToggleButton, ToggleButtonGroup, Snackbar, Alert
 } from '@mui/material';
 import TaskForm from './TaskForm';
 
-const TaskList = () => {
+const TaskList = ({ userPermissions }) => {
     const { getAccessTokenSilently } = useAuth0();
     const [tasks, setTasks] = useState([]);
     const [selectedTask, setSelectedTask] = useState(null);
@@ -17,6 +17,17 @@ const TaskList = () => {
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [taskToDelete, setTaskToDelete] = useState(null);
     const [viewType, setViewType] = useState('card');
+    const [alertOpen, setAlertOpen] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+
+    const checkPermission = (permission) => {
+        if (!userPermissions.includes(permission)) {
+            setAlertMessage(`You lack the required permission: ${permission}`);
+            setAlertOpen(true);
+            return false;
+        }
+        return true;
+    };
 
     useEffect(() => {
         const getTasks = async () => {
@@ -33,6 +44,8 @@ const TaskList = () => {
     }, [getAccessTokenSilently]);
 
     const handleDelete = async () => {
+        if (!checkPermission('delete:tasks')) return;
+
         if (taskToDelete) {
             try {
                 const token = await getAccessTokenSilently();
@@ -52,6 +65,12 @@ const TaskList = () => {
     };
 
     const handleSaveTask = async (task) => {
+        if (task.id) {
+            if (!checkPermission('edit:tasks')) return;
+        } else {
+            if (!checkPermission('create:tasks')) return;
+        }
+
         try {
             const token = await getAccessTokenSilently();
             if (task.id) {
@@ -97,6 +116,8 @@ const TaskList = () => {
             setViewType(newViewType);
         }
     };
+
+    const handleAlertClose = () => setAlertOpen(false);
 
     const filteredTasks = tasks.filter(task => {
         if (filter === 'All') return true;
@@ -235,6 +256,13 @@ const TaskList = () => {
                     </Button>
                 </DialogActions>
             </Dialog>
+
+            {/* Alert Snackbar */}
+            <Snackbar open={alertOpen} autoHideDuration={6000} onClose={handleAlertClose}>
+                <Alert onClose={handleAlertClose} severity="warning" sx={{ width: '100%' }}>
+                    {alertMessage}
+                </Alert>
+            </Snackbar>
         </Box>
     );
 };

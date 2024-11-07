@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\models\\taskcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\models\\taskcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\hasscopehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +19,12 @@
       "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\hasscoperequirement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\models\\taskcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\models\\taskcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|solutionrelative:taskmanagerbackend\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FF9E363-713B-44D7-A400-38E6A9D33E10}|TaskManagerBackend\\TaskManagerBackend.csproj|c:\\users\\yazee\\onedrive\\documents\\github\\lumin-assesment\\taskmanagerbackend\\taskmanagerbackend\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,7 +82,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HasScopeHandler.cs",
+              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeHandler.cs",
+              "RelativeDocumentMoniker": "TaskManagerBackend\\HasScopeHandler.cs",
+              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeHandler.cs",
+              "RelativeToolTip": "TaskManagerBackend\\HasScopeHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T10:12:55.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskContext.cs",
+              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Models\\TaskContext.cs",
+              "RelativeDocumentMoniker": "TaskManagerBackend\\Models\\TaskContext.cs",
+              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Models\\TaskContext.cs",
+              "RelativeToolTip": "TaskManagerBackend\\Models\\TaskContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T06:54:47.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TaskController.cs",
+              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Controllers\\TaskController.cs",
+              "RelativeDocumentMoniker": "TaskManagerBackend\\Controllers\\TaskController.cs",
+              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Controllers\\TaskController.cs",
+              "RelativeToolTip": "TaskManagerBackend\\Controllers\\TaskController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwFEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T10:29:19.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HasScopeRequirement.cs",
+              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeRequirement.cs",
+              "RelativeDocumentMoniker": "TaskManagerBackend\\HasScopeRequirement.cs",
+              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeRequirement.cs",
+              "RelativeToolTip": "TaskManagerBackend\\HasScopeRequirement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T10:12:50.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ApiController.cs",
               "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Controllers\\ApiController.cs",
               "RelativeDocumentMoniker": "TaskManagerBackend\\Controllers\\ApiController.cs",
@@ -95,51 +147,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TaskController.cs",
-              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Controllers\\TaskController.cs",
-              "RelativeDocumentMoniker": "TaskManagerBackend\\Controllers\\TaskController.cs",
-              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Controllers\\TaskController.cs",
-              "RelativeToolTip": "TaskManagerBackend\\Controllers\\TaskController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAYwFEAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T10:29:19.571Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "HasScopeRequirement.cs",
-              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeRequirement.cs",
-              "RelativeDocumentMoniker": "TaskManagerBackend\\HasScopeRequirement.cs",
-              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeRequirement.cs",
-              "RelativeToolTip": "TaskManagerBackend\\HasScopeRequirement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T10:12:50.579Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HasScopeHandler.cs",
-              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeHandler.cs",
-              "RelativeDocumentMoniker": "TaskManagerBackend\\HasScopeHandler.cs",
-              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\HasScopeHandler.cs",
-              "RelativeToolTip": "TaskManagerBackend\\HasScopeHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T10:12:55.006Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Program.cs",
               "RelativeDocumentMoniker": "TaskManagerBackend\\Program.cs",
               "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Program.cs",
               "RelativeToolTip": "TaskManagerBackend\\Program.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAYwFIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAkwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:40:59.185Z"
+              "WhenOpened": "2024-10-31T15:40:59.185Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -152,18 +169,6 @@
               "ViewState": "AgIAADoAAAAAAAAAAAAkwDwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-10-31T15:45:26.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TaskContext.cs",
-              "DocumentMoniker": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Models\\TaskContext.cs",
-              "RelativeDocumentMoniker": "TaskManagerBackend\\Models\\TaskContext.cs",
-              "ToolTip": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\Models\\TaskContext.cs",
-              "RelativeToolTip": "TaskManagerBackend\\Models\\TaskContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T06:54:47.903Z"
             },
             {
               "$type": "Document",

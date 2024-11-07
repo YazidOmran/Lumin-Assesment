@@ -12,7 +12,7 @@ root.render(
     authorizationParams={{
       redirect_uri: window.location.origin,
       audience: "https://taskmanager.api",
-      scope: "view:tasks create:tasks edit:tasks delete:tasks"
+      scope: "email openid profile view:tasks create:tasks edit:tasks delete:tasks"
     }}
   >
     <App />
