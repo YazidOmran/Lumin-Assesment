@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj": {}
+    "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment-old\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj": {
+    "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment-old\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj",
+        "projectUniqueName": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment-old\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj",
         "projectName": "TaskManagerBackend",
-        "projectPath": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj",
+        "projectPath": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment-old\\TaskManagerBackend\\TaskManagerBackend\\TaskManagerBackend.csproj",
         "packagesPath": "C:\\Users\\yazee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment\\TaskManagerBackend\\TaskManagerBackend\\obj\\",
+        "outputPath": "C:\\Users\\yazee\\OneDrive\\Documents\\GitHub\\Lumin-Assesment-old\\TaskManagerBackend\\TaskManagerBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yazee\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -60,7 +64,7 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
-            "Microsoft.IdentityModel.Logging": {
+            "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[8.2.0, )"
             },
