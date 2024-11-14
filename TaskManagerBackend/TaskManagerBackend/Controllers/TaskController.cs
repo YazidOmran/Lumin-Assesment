@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace TaskManagerBackend.Controllers
 {
-    [Route("api/tasks")]
+    [Route("api/[controller]")]
     [ApiController]
+    [Authorize] // Require authentication for all endpoints
     public class TasksController : ControllerBase
     {
         private readonly TaskContext _context;
@@ -19,27 +20,26 @@ namespace TaskManagerBackend.Controllers
             _context = context;
         }
 
-        // GET: api/tasks - Retrieve all tasks (requires view:tasks permission)
+        // GET: api/tasks - Retrieve all tasks 
         [HttpGet]
-        [Authorize("view:tasks")]
         public async Task<ActionResult<IEnumerable<TaskManagerBackend.Models.Task>>> GetTasks()
         {
             return await _context.Tasks.ToListAsync();
         }
 
-        // POST: api/tasks - Add a new task (requires create:tasks permission)
+        // POST: api/tasks - Add a new task (Requires Admin role)
         [HttpPost]
-        [Authorize("create:tasks")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<TaskManagerBackend.Models.Task>> AddTask(TaskManagerBackend.Models.Task task)
         {
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
-            return Created("", task); // Return 201 Created without a specific location
+            return Created("", task);
         }
 
-        // PUT: api/tasks/{id} - Update an existing task by ID (requires edit:tasks permission)
+        // PUT: api/tasks/{id} - Update an existing task by ID (Requires Manager or Admin role)
         [HttpPut("{id}")]
-        [Authorize("edit:tasks")]
+        [Authorize(Roles = "Manager,Admin")]
         public async Task<IActionResult> UpdateTask(int id, TaskManagerBackend.Models.Task updatedTask)
         {
             if (id != updatedTask.Id)
@@ -68,9 +68,9 @@ namespace TaskManagerBackend.Controllers
             return NoContent();
         }
 
-        // DELETE: api/tasks/{id} - Delete a task by ID (requires delete:tasks permission)
+        // DELETE: api/tasks/{id} - Delete a task by ID (Requires Admin role)
         [HttpDelete("{id}")]
-        [Authorize("delete:tasks")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteTask(int id)
         {
             var task = await _context.Tasks.FindAsync(id);

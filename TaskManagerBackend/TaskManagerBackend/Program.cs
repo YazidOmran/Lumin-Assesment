@@ -1,19 +1,52 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
 using TaskManagerBackend.Models;
+using System.Threading.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+// Configure Entity Framework with SQLite for both Task and Identity contexts
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<TaskContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("TaskContext")));
 
-// Add other services
-builder.Services.AddEndpointsApiExplorer();
+// Add Identity services
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+// Configure JWT Authentication
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "yourdomain.com",
+            ValidAudience = "yourdomain.com",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("YourSecretKeyHere"))
+        };
+    });
+
+// Configure role-based authorization policies
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CanManageTasks", policy => policy.RequireClaim("Permission", "ManageTasks"));
+});
+
+// Add Swagger for API documentation
 builder.Services.AddSwaggerGen();
 
 // Add CORS policy
@@ -25,57 +58,44 @@ builder.Services.AddCors(options =>
                         .AllowAnyHeader());
 });
 
-// Configure Auth0 authentication
-var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.Authority = domain;
-        options.Audience = builder.Configuration["Auth0:Audience"];
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = ClaimTypes.NameIdentifier
-        };
-    });
-
-// Add authorization policies for different task permissions
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("view:tasks", policy =>
-        policy.Requirements.Add(new HasScopeRequirement("view:tasks", domain)));
-    options.AddPolicy("create:tasks", policy =>
-        policy.Requirements.Add(new HasScopeRequirement("create:tasks", domain)));
-    options.AddPolicy("edit:tasks", policy =>
-        policy.Requirements.Add(new HasScopeRequirement("edit:tasks", domain)));
-    options.AddPolicy("delete:tasks", policy =>
-        policy.Requirements.Add(new HasScopeRequirement("delete:tasks", domain)));
-});
-
-// Register the custom authorization handler
-builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Enable Swagger only in development mode
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskManager API V1");
+        c.RoutePrefix = "swagger"; // Access Swagger at /swagger/index.html
+    });
 }
 
 app.UseHttpsRedirection();
-
-// Enable the CORS policy
 app.UseCors("AllowLocalhost3000");
 
-// Enable routing
-app.UseRouting();
-
-// Enable authentication and authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Map endpoints
 app.MapControllers();
 
+// Seed roles
+await SeedRoles(app.Services);
+
 app.Run();
+
+// Helper function to seed roles
+async System.Threading.Tasks.Task SeedRoles(IServiceProvider serviceProvider)
+{
+    using var scope = serviceProvider.CreateScope();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    string[] roles = { "Admin", "Manager", "User" };
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
+}

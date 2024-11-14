@@ -1,39 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTasks, deleteTask, updateTask, addTask } from '../api';
-import { useAuth0 } from '@auth0/auth0-react';
 import {
     Button, List, ListItem, ListItemText, Box, Typography, Select, MenuItem, FormControl, InputLabel,
     Card, CardContent, CardActions, Divider, Grid, Dialog, DialogTitle, DialogContent, DialogActions,
-    ToggleButton, ToggleButtonGroup, Snackbar, Alert
+    ToggleButton, ToggleButtonGroup
 } from '@mui/material';
 import TaskForm from './TaskForm';
 
-const TaskList = ({ userPermissions }) => {
-    const { getAccessTokenSilently } = useAuth0();
+const TaskList = () => {
     const [tasks, setTasks] = useState([]);
     const [selectedTask, setSelectedTask] = useState(null);
     const [filter, setFilter] = useState('All');
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-    const [taskToDelete, setTaskToDelete] = useState(null);
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false); // New state for delete confirmation dialog
+    const [taskToDelete, setTaskToDelete] = useState(null); // Task to be deleted
     const [viewType, setViewType] = useState('card');
-    const [alertOpen, setAlertOpen] = useState(false);
-    const [alertMessage, setAlertMessage] = useState('');
-
-    const checkPermission = (permission) => {
-        if (!userPermissions.includes(permission)) {
-            setAlertMessage(`You lack the required permission: ${permission}`);
-            setAlertOpen(true);
-            return false;
-        }
-        return true;
-    };
 
     useEffect(() => {
         const getTasks = async () => {
             try {
-                const token = await getAccessTokenSilently();
-                const data = await fetchTasks(token);
+                const data = await fetchTasks();
                 setTasks(data);
             } catch (error) {
                 console.error("Failed to fetch tasks:", error);
@@ -41,15 +27,12 @@ const TaskList = ({ userPermissions }) => {
         };
 
         getTasks();
-    }, [getAccessTokenSilently]);
+    }, []);
 
     const handleDelete = async () => {
-        if (!checkPermission('delete:tasks')) return;
-
         if (taskToDelete) {
             try {
-                const token = await getAccessTokenSilently();
-                await deleteTask(taskToDelete.id, token);
+                await deleteTask(taskToDelete.id);
                 setTasks(tasks.filter(task => task.id !== taskToDelete.id));
                 setIsDeleteDialogOpen(false);
                 setTaskToDelete(null);
@@ -61,24 +44,17 @@ const TaskList = ({ userPermissions }) => {
 
     const handleDeleteClick = (task) => {
         setTaskToDelete(task);
-        setIsDeleteDialogOpen(true);
+        setIsDeleteDialogOpen(true); // Open delete confirmation dialog
     };
 
     const handleSaveTask = async (task) => {
-        if (task.id) {
-            if (!checkPermission('edit:tasks')) return;
-        } else {
-            if (!checkPermission('create:tasks')) return;
-        }
-
         try {
-            const token = await getAccessTokenSilently();
             if (task.id) {
-                await updateTask(task.id, task, token);
+                await updateTask(task.id, task);
             } else {
-                await addTask(task, token);
+                await addTask(task);
             }
-            const data = await fetchTasks(token);
+            const data = await fetchTasks();
             setTasks(data);
             setSelectedTask(null);
             setIsDialogOpen(false);
@@ -116,8 +92,6 @@ const TaskList = ({ userPermissions }) => {
             setViewType(newViewType);
         }
     };
-
-    const handleAlertClose = () => setAlertOpen(false);
 
     const filteredTasks = tasks.filter(task => {
         if (filter === 'All') return true;
@@ -256,13 +230,6 @@ const TaskList = ({ userPermissions }) => {
                     </Button>
                 </DialogActions>
             </Dialog>
-
-            {/* Alert Snackbar */}
-            <Snackbar open={alertOpen} autoHideDuration={6000} onClose={handleAlertClose}>
-                <Alert onClose={handleAlertClose} severity="warning" sx={{ width: '100%' }}>
-                    {alertMessage}
-                </Alert>
-            </Snackbar>
         </Box>
     );
 };
